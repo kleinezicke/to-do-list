@@ -1,0 +1,1 @@
+document.getElementById("button").addEventListener("click",(function(t){console.log("I'm a button!")}));
