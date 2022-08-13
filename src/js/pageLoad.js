@@ -1,5 +1,6 @@
 import group from "./groups";
 import toDo from "./toDo";
+import domEdit from "./domEdit";
 
 function pageLoad(){
 
@@ -8,9 +9,12 @@ function pageLoad(){
     const button = document.getElementById("create-todo");
     button.addEventListener("click", function(){
 
-        defaultGroup.toDos.push(new toDo(document.getElementById("title").value, document.getElementById("description")))
+        const newTodo = new toDo(document.getElementById("title").value, document.getElementById("description").value);
+        domEdit.createToDo(newTodo);
 
-        console.log(defaultGroup)
+        defaultGroup.toDos.push(newTodo);
+
+        console.log(defaultGroup);
 
     })
 
