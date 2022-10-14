@@ -2,9 +2,12 @@ import group from "./groups";
 import toDo from "./toDo";
 import domEdit from "./domEdit";
 
-(function pageLoad(){
+let currentGroup;
+
+function pageLoad(){
 
     const defaultGroup = new group("Default");
+    currentGroup = defaultGroup;
 
     const button = document.getElementById("create-todo");
     button.addEventListener("click", function(){
@@ -18,4 +21,13 @@ import domEdit from "./domEdit";
 
     })
 
-})
+    document.addEventListener("click", function(event){
+        if(event.target.classList.contains("removeButton")) {
+            event.target.parentNode.remove();
+            currentGroup.remove(event.target.parentNode.id)
+        }
+    })
+
+};
+
+pageLoad();
