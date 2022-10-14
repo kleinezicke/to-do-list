@@ -13,7 +13,7 @@ const domEdit = {
         editButton.textContent = "Edit";
 
         const removeButton = create(newDiv,"button");
-        removeButton.classList.add("removeButton");
+        removeButton.classList.add("remove-button");
         removeButton.textContent = "X";
 
         const title = create(newDiv,"h3");
@@ -22,7 +22,14 @@ const domEdit = {
         title.textContent = toDo.title;
         description.textContent = toDo.description;
 
-    }
+    },
+    createGroup: function(group){
+
+        const container = document.getElementById("groups")
+
+        const newGroup = create(container,"button")
+        newGroup.textContent = group.name;
+    },
 }
 
 function create(container,tag) {
